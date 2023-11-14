@@ -1,0 +1,558 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Topic Listing Bootstrap 5 Template</title>
+
+        <!-- CSS FILES -->        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap" rel="stylesheet">
+                        
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <link href="css/bootstrap-icons.css" rel="stylesheet">
+
+        <link href="css/templatemo-topic-listing.css" rel="stylesheet">
+        
+        
+<!--
+
+TemplateMo 590 topic listing
+
+https://templatemo.com/tm-590-topic-listing
+
+-->
+    </head>
+    
+    <body id="top">
+
+        <main>
+
+            <nav class="navbar navbar-expand-lg">
+                <div class="container">
+                    <a class="navbar-brand" href="principal.html">
+                        <i class="bi-back"></i>
+                        <span>Topic</span>
+                    </a>
+
+                    <div class="d-lg-none ms-auto me-4">
+                        <a href="#top" class="navbar-icon bi-person smoothscroll"></a>
+                    </div>
+    
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+    
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-lg-5 me-lg-auto">
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_1">Home</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_2">Browse Topics</a>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_3">How it works</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_4">FAQs</a>
+                            </li>
+    
+                            <li class="nav-item">
+                                <a class="nav-link click-scroll" href="#section_5">Contact</a>
+                            </li>
+
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Usuario</a>
+
+                                <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="cambiarcontra.html">Cambiar Contraseña</a></li>
+
+                                    
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <div class="d-none d-lg-block">
+                            <a href="#top" class="navbar-icon bi-person smoothscroll"></a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            
+
+            <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-8 col-12 mx-auto">
+                            <h1 class="text-white text-center">Tabla de Productos</h1>
+
+                            
+
+                            
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h6 class="m-0 font-weight-bold text-primary">Tabla</h6>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>Codigo</th>
+                                                <th>Nombre</th>
+                                                <th>Marca</th>
+                                                <th>Categoria</th>
+                                                <th>Estado</th>
+                                                <th>Precio</th>
+                                                <th>Almacen</th>
+                                                <th>Operaciones</th>
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Codigo</th>
+                                                <th>Nombre</th>
+                                                <th>Marca</th>
+                                                <th>Categoria</th>
+                                                <th>Estado</th>
+                                                <th>Precio</th>
+                                                <th>Almacen</th>
+                                                <th>Operaciones</th>
+                                            </tr>
+                                        </tfoot>
+
+                                        </table>
+                                        <button id="btnAgregar" class="btn btn-primary btn-user ">
+                                        Agregar
+                                        </button>
+                                        <button id="btnModificar" class="btn btn-primary btn-user ">
+                                        Modificar
+                                        </button>
+                                        <button id="btnGenerar" class="btn btn-primary btn-user ">
+                                        Generar Reporte
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+            
+            <!-- Modal Agregar-->
+            <div class="modal fade" id="agregarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Agregar Estudiante</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">Codigo:
+                                <input type="text" class="form-control form-control-user"
+                                       id="txtCodigo">
+                            </div>
+                            <div class="form-group">Nombre:
+                                <input type="text" class="form-control form-control-user"
+                                       id="txtNombre">
+                            </div>
+                            <div class="form-group">Marca:
+                                <input type="text" class="form-control form-control-user"
+                                       id="txtMarca">
+                            </div>
+                            <div class="form-group">Categoria:
+                                <input type="text" class="form-control form-control-user"
+                                       id="txtCategoria">
+                            </div>
+                            <div class="form-group">Estado:
+                                <input type="text" class="form-control form-control-user"
+                                       id="txtForma">
+                            </div>
+                            <div class="form-group">Precio:
+                                <input type="text" class="form-control form-control-user"
+                                       id="txtPrecio">
+                            </div>
+                            <div class="form-group">Almacen:
+                                <input type="text" class="form-control form-control-user"
+                                       id="txtStock">
+                            </div>
+                            
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                            <button class="btn btn-primary" id="btnGrabarAgregar" type="submit">Grabar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <!-- Modal Modificar-->
+        <div class="modal fade" id="modificarModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                 aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Editar</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">Codigo:
+                                <input type="text" class="form-control form-control-user"
+                                       id="txtCodigoe">
+                            </div>
+                            <div class="form-group">Nombre:
+                                <input type="text" class="form-control form-control-user"
+                                       id="txtNombree">
+                            </div>
+                            <div class="form-group">Marca:
+                                <input type="text" class="form-control form-control-user"
+                                       id="txtMarcae">
+                            </div>
+                            <div class="form-group">Categoria:
+                                <input type="text" class="form-control form-control-user"
+                                       id="txtCategoriae">
+                            </div>
+                            <div class="form-group">Estado:
+                                <input type="text" class="form-control form-control-user"
+                                       id="txtFormae">
+                            </div>
+                            <div class="form-group">Precio:
+                                <input type="text" class="form-control form-control-user"
+                                       id="txtPrecioe">
+                            </div>
+                            <div class="form-group">Almacen:
+                                <input type="text" class="form-control form-control-user"
+                                       id="txtStocke">
+                            </div>
+                            
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancelar</button>
+                            <button class="btn btn-primary" id="btnGrabarModificar" type="submit">Grabar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+            <section class="contact-section section-padding section-bg" id="section_5">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-lg-12 col-12 text-center">
+                            <h2 class="mb-5">Get in touch</h2>
+                        </div>
+
+                        <div class="col-lg-5 col-12 mb-4 mb-lg-0">
+                            <iframe class="google-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2595.065641062665!2d-122.4230416990949!3d37.80335401520422!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80858127459fabad%3A0x808ba520e5e9edb7!2sFrancisco%20Park!5e1!3m2!1sen!2sth!4v1684340239744!5m2!1sen!2sth" width="100%" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-12 mb-3 mb-lg- mb-md-0 ms-auto">
+                            <h4 class="mb-3">Head office</h4>
+
+                            <p>Bay St &amp;, Larkin St, San Francisco, CA 94109, United States</p>
+
+                            <hr>
+
+                            <p class="d-flex align-items-center mb-1">
+                                <span class="me-2">Phone</span>
+
+                                <a href="tel: 305-240-9671" class="site-footer-link">
+                                    305-240-9671
+                                </a>
+                            </p>
+
+                            <p class="d-flex align-items-center">
+                                <span class="me-2">Email</span>
+
+                                <a href="mailto:info@company.com" class="site-footer-link">
+                                    info@company.com
+                                </a>
+                            </p>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-12 mx-auto">
+                            <h4 class="mb-3">Dubai office</h4>
+
+                            <p>Burj Park, Downtown Dubai, United Arab Emirates</p>
+
+                            <hr>
+
+                            <p class="d-flex align-items-center mb-1">
+                                <span class="me-2">Phone</span>
+
+                                <a href="tel: 110-220-3400" class="site-footer-link">
+                                    110-220-3400
+                                </a>
+                            </p>
+
+                            <p class="d-flex align-items-center">
+                                <span class="me-2">Email</span>
+
+                                <a href="mailto:info@company.com" class="site-footer-link">
+                                    info@company.com
+                                </a>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </main>
+
+<footer class="site-footer section-padding">
+            <div class="container">
+                <div class="row">
+
+                    <div class="col-lg-3 col-12 mb-4 pb-2">
+                        <a class="navbar-brand mb-2" href="principal.html">
+                            <i class="bi-back"></i>
+                            <span>Topic</span>
+                        </a>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6">
+                        <h6 class="site-footer-title mb-3">Resources</h6>
+
+                        <ul class="site-footer-links">
+                            <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link">Home</a>
+                            </li>
+
+                            <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link">How it works</a>
+                            </li>
+
+                            <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link">FAQs</a>
+                            </li>
+
+                            <li class="site-footer-link-item">
+                                <a href="#" class="site-footer-link">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-6 mb-4 mb-lg-0">
+                        <h6 class="site-footer-title mb-3">Information</h6>
+
+                        <p class="text-white d-flex mb-1">
+                            <a href="tel: 305-240-9671" class="site-footer-link">
+                                305-240-9671
+                            </a>
+                        </p>
+
+                        <p class="text-white d-flex">
+                            <a href="mailto:info@company.com" class="site-footer-link">
+                                info@company.com
+                            </a>
+                        </p>
+                    </div>
+
+                    <div class="col-lg-3 col-md-4 col-12 mt-4 mt-lg-0 ms-auto">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            English</button>
+
+                            <ul class="dropdown-menu">
+                                <li><button class="dropdown-item" type="button">Thai</button></li>
+
+                                <li><button class="dropdown-item" type="button">Myanmar</button></li>
+
+                                <li><button class="dropdown-item" type="button">Arabic</button></li>
+                            </ul>
+                        </div>
+
+                        <p class="copyright-text mt-lg-5 mt-4">Copyright © 2048 Topic Listing Center. All rights reserved.
+                        <br><br>Design: <a rel="nofollow" href="https://templatemo.com" target="_blank">TemplateMo</a> Distribution <a href="https://themewagon.com">ThemeWagon</a></p>
+                        
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+
+
+        <!-- JAVASCRIPT FILES -->
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/jquery.sticky.js"></script>
+        <script src="js/click-scroll.js"></script>
+        <script src="js/custom.js"></script>
+        <script src="demo/sb-admin-2.min.js"></script>
+        <script src="datatables/jquery.dataTables.min.js"></script>
+        <script src="datatables/dataTables.bootstrap4.min.js"></script>
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="dist/jspdf.umd.min.js"></script>
+        <script>
+            let tabla;
+            $(document).ready(function () {
+                let token = sessionStorage.getItem("token");
+                let logi = sessionStorage.getItem("logi");
+                
+                let parametro = {token: token, logi: logi};
+                let tabla;
+
+                $.getJSON("mostrarProductos", parametro, function (data) {
+                tabla = $('#dataTable').DataTable({
+                data: data, // Utiliza los datos recibidos del servlet como fuente de datos
+                columns: [
+                {data: 'codiProd'},
+                {data: 'nombProd'},
+                {data: 'marcProd'},
+                {data: 'cateProd'},
+                {data: 'formProd'},
+                {data: 'precProd'},
+                {data: 'stocProd'},
+                {data: 'codiProd',
+                render: function (data, type, row) {
+                    return "<button id=\"btnEliminar\" onclick=eliminar(" + data + ") class=\"btn btn-primary btn-user\">Eliminar</button>";
+                }
+            }
+        ]
+    });
+});
+                $("#btnAgregar").click(function () {
+                    $("#agregarModal").modal("show");
+                });
+                
+                $("#btnGrabarAgregar").click(function () {
+                    let token = sessionStorage.getItem("token");
+                    let logi = sessionStorage.getItem("logi");
+                    let codiProd = $("#txtCodigo").val();
+                    let nombProd = $("#txtNombre").val();
+                    let marcProd = $("#txtMarca").val();
+                    let cateProd = $("#txtCategoria").val();
+                    let formProd = $("#txtForma").val();
+                    let precProd = $("#txtPrecio").val();
+                    let stocProd = $("#txtStock").val();
+                    let parametros = {
+                        codiProd: codiProd,
+                        nombProd: nombProd,
+                        marcProd: marcProd,
+                        cateProd: cateProd,
+                        formProd: formProd,
+                        precProd: precProd,
+                        stocProd: stocProd,
+                        logi:logi,
+                        token: token
+        };
+
+                    $.getJSON("agregarProductos", parametros, function (data) {
+                        console.log("Respuesta del servidor:", data);
+                    if (data.resultado === "ok") {
+                        console.log("Datos agregados con éxito");
+                            $("#agregarModal").modal("hide");
+                            tabla.ajax.reload();
+                        } else {
+                            console.log("Error al agregar datos");
+                            alert(data.resultado);
+                        }
+                        });
+                });
+                
+                $("#btnModificar").click(function () {
+                    $("#modificarModal").modal("show");
+                });
+                $("#btnGrabarModificar").click(function () {
+                    let token = sessionStorage.getItem("token");
+                    let logi = sessionStorage.getItem("logi");
+                    let codiProde = $("#txtCodigoe").val();
+                    let nombProde = $("#txtNombree").val();
+                    let marcProde = $("#txtMarcae").val();
+                    let cateProde = $("#txtCategoriae").val();
+                    let formProde = $("#txtFormae").val();
+                    let precProde = $("#txtPrecioe").val();
+                    let stocProde = $("#txtStocke").val();
+                    let parametros = {
+                        codiProde: codiProde,
+                        nombProde: nombProde,
+                        marcProde: marcProde,
+                        cateProde: cateProde,
+                        formProde: formProde,
+                        precProde: precProde,
+                        stocProde: stocProde,
+                        logi:logi,
+                        token: token};
+
+                    $.getJSON("editarProductos", parametros, function (data) {
+                        if (data.resultado === "ok") {
+                            $("#modificarModal").modal("hide");
+                            tabla.ajax.reload();
+                            alert("GRABO");
+                        } else {
+                            alert("NO GRABO");
+                        }
+                    });
+                });
+
+            });
+            
+            function eliminar(id) {
+                $(document).ready(function () {
+                    let token = sessionStorage.getItem("token");
+                    let logi = sessionStorage.getItem("logi");
+                    let parametros = {logi:logi,token:token,codiProd: id};
+                    $.getJSON("eliminarProducto", parametros, function (data) {
+                        if (data.resultado === "ok") {
+                            tabla.ajax.reload();
+                        } else {
+                            
+                        }
+                    });
+
+                });
+            }
+            
+            document.getElementById("btnGenerar").addEventListener("click", function() {
+    const table = document.getElementById("dataTable");
+    const data = new FormData();
+    data.append("htmlContent", table.innerHTML); // Envía el contenido HTML de la tabla al servlet
+
+    fetch("generarPDF", {
+        method: "POST", // Puedes usar POST u otro método según tu configuración del servlet
+        body: data
+    })
+    .then(response => response.blob())
+    .then(blob => {
+        // Maneja la respuesta del servlet, que debe ser el PDF generado
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "reporte.pdf";
+        a.click();
+        window.URL.revokeObjectURL(url);
+    })
+    .catch(error => {
+        console.error("Error al generar el PDF:", error);
+    });
+});
+            
+            
+
+                
+        </script>
+
+    </body>
+</html>
