@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Chat seguro con WebSocket</title>
+    </head>
+    <body>
+        <h1>Chat seguro con WebSocket</h1>
+        <div id="chat-box"></div>
+        <input type="text" id="message-input" placeholder="Escribe un mensaje">
+        <button onclick="sendMessage()">Enviar</button>
+
+        <script>
+            const ws = new WebSocket('ws://localhost:8088');
+
+            ws.onopen = function () {
+                console.log('Conexión establecida.');
+                sendMessage();
+            };
+
+            ws.onmessage = function (event) {
+                const chatBox = document.getElementById('chat-box');
+                const data = JSON.parse(event.data);
+
+                if (data.encrypted_message) {
+                    // Aquí puedes manejar el mensaje recibido y mostrarlo en el chat
+                    const message = data.encrypted_message;
+                    const chatMessage = document.createElement('p');
+                    chatMessage.textContent = 'Mensaje cifrado: ' + message;
+                    chatBox.appendChild(chatMessage);
+                }
+            };
+
+            function sendMessage() {
+                if (ws.readyState === WebSocket.OPEN) {
+                    // Verifica si la conexión está abierta
+                    ws.send('Mensaje a enviar');
+                } else {
+                    console.error('La conexión WebSocket no está abierta todavía.');
+                }
+            }
+            async function encryptMessage(message, key) {
+                const encoder = new TextEncoder();
+                const data = encoder.encode(message);
+
+                const iv = crypto.getRandomValues(new Uint8Array(12));
+
+                try {
+                    const keyObject = await crypto.subtle.importKey('raw', key, {name: 'AES-GCM'}, false, ['encrypt']);
+                    const encryptedBuffer = await crypto.subtle.encrypt({name: 'AES-GCM', iv: iv}, keyObject, data);
+
+                    const encryptedData = new Uint8Array(encryptedBuffer);
+                    const encryptedArray = new Uint8Array(iv.byteLength + encryptedData.byteLength);
+                    encryptedArray.set(iv, 0);
+                    encryptedArray.set(encryptedData, iv.byteLength);
+
+                    return encryptedArray;
+                } catch (error) {
+                    console.error('Error al cifrar:', error);
+                    throw error;
+                }
+            }
+        </script>
+    </body>
+</html>
